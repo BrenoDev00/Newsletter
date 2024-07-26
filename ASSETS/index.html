@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receba Novidades!</title>
+    <link
+      rel="shortcut icon"
+      href="IMAGES/logo_favicon_32x32.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../ASSETS/CSS/global.css" />
+    <link rel="stylesheet" href="../ASSETS/CSS/main.css" />
+    <link
+      rel="stylesheet"
+      href="../ASSETS/CSS/main_tablet.css"
+      media="(max-width: 991px)"
+    />
+    <link
+      rel="stylesheet"
+      href="../ASSETS/CSS/main_mobile.css"
+      media="(max-width: 480px)"
+    />
+  </head>
+  <body>
+    <!-- Menu de Navegação -->
+    <header>
+      <nav>
+        <div>
+          <img
+            class="logo-navigation"
+            src="../ASSETS/IMAGES/logo_transparente_1000x1000.png"
+            alt="Logo do site Newsletter."
+          />
+        </div>
+
+        <ul class="container-navigation-items">
+          <li><a class="navigation-item" href="#">Início</a></li>
+          <li><a class="navigation-item" href="#">Novidades</a></li>
+          <li><a class="navigation-item" href="#">Contato</a></li>
+          <li><a class="navigation-item" href="#">Sobre Nós</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+      <div class="container-main-content">
+        <img
+          src="../ASSETS/IMAGES/ilustracao.svg"
+          alt="Ilustração de pessoas juntando-se a uma comunidade social."
+          class="illustration"
+        />
+
+        <div class="main-content">
+          <h1>Cadastre-se Agora e <br />Receba Novidades!</h1>
+
+          <form class="newsletter-form" id="newsletter-form" action="#">
+            <h2>Cadastrar</h2>
+
+            <div class="form-group">
+              <label for="user-name"></label>
+              <input
+                class="input-name"
+                type="text"
+                id="user-name"
+                placeholder="* Nome"
+              />
+              <span class="error-message">Mínimo 3 caracteres</span>
+            </div>
+
+            <div class="form-group">
+              <label for="user-email"></label>
+              <input
+                class="input-email"
+                type="email"
+                id="user-email"
+                placeholder="* Seu melhor E-mail"
+              />
+              <span class="error-message">Informe um E-mail válido</span>
+            </div>
+
+            <div class="checkbox-group">
+              <input type="checkbox" id="email-accept" />
+              <label for="email-accept">Desejo receber diariamente</label>
+            </div>
+
+            <button type="submit" class="btn-submit">Receber Novidades</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+      <div class="container-footer">
+        <div class="container-slogan-and-informations">
+          <div class="container-slogan">
+            <div>
+              <a href="#">
+                <img
+                  class="logo-footer"
+                  src="../ASSETS/IMAGES/logo_transparente_1000x1000.png"
+                  alt=""
+                />
+              </a>
+            </div>
+
+            <div>
+              <p class="slogan">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                nihil dolorum asperiores perferendis incidunt officiis magnam
+                quaerat, distinctio maiores fugit ipsam nisi saepe neque,
+                similique, vero mollitia voluptates cupiditate repudiandae!
+              </p>
+            </div>
+          </div>
+
+          <div class="container-informations-footer">
+            <div class="newsletter">
+              <h2>Novidades</h2>
+
+              <ul>
+                <li><a href="#">Lorem Ipsum</a></li>
+                <li><a href="#">Lorem Ipsum</a></li>
+                <li><a href="#">Lorem Ipsum</a></li>
+                <li><a href="#">Lorem Ipsum</a></li>
+              </ul>
+            </div>
+
+            <div class="contact">
+              <h2>Contato</h2>
+
+              <address></address>
+            </div>
+
+            <div class="about-us">
+              <h2>Sobre Nós</h2>
+
+              <ul>
+                <li><a href="#">Missão</a></li>
+                <li><a href="#">Visão</a></li>
+                <li><a href="#">Valores</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>Newsletter &copy; | Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../ASSETS/JS/script.js"></script>
+  </body>
+</html>

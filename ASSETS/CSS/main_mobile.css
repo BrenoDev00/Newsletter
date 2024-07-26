@@ -1,0 +1,23 @@
+@media (max-width: 480px) {
+  .main-content h1 {
+    padding: 3rem;
+  }
+
+  br {
+    display: none;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .newsletter-form {
+    box-shadow: none;
+    padding: 3rem 1rem;
+  }
+
+  .input-name,
+  .input-email {
+    width: 28rem;
+  }
+}
