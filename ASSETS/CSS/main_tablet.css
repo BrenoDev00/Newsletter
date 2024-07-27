@@ -1,5 +1,15 @@
 @media (max-width: 991px) {
+  /* Conteúdo Principal */
   .illustration {
     display: none;
+  }
+
+  /* Rodapé */
+  .container-slogan-and-informations {
+    gap: 3.9rem;
+  }
+
+  .container-informations-footer {
+    flex-flow: column;
   }
 }

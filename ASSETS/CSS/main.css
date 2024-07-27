@@ -1,11 +1,11 @@
 /* Menu de Navegação */
 nav {
-  background-color: var(--color-primary-1);
+  background-color: var(--primary-color-1);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.6rem 4.88rem;
-  box-shadow: 0 0 2.5rem var(--color-primary-3);
+  box-shadow: 0 0 2.5rem var(--primary-color-3);
 }
 
 .logo-navigation {
@@ -56,7 +56,7 @@ nav {
 .main-content h1 {
   font-size: 4rem;
   line-height: 1.4;
-  color: var(--color-primary-1);
+  color: var(--primary-color-1);
 }
 
 .newsletter-form {
@@ -65,15 +65,15 @@ nav {
   gap: 3.9rem;
   padding: 4rem 3rem;
   border-radius: 1rem;
-  box-shadow: 0rem 0rem 1rem 0rem var(--color-primary-3);
-  color: var(--color-primary-5);
+  box-shadow: 0rem 0rem 1rem 0rem var(--primary-color-3);
+  color: var(--primary-color-5);
 }
 
 .newsletter-form h2 {
   font-size: 2.76rem;
   font-weight: 500;
   border-radius: 0.3rem;
-  border-left: 0.3rem solid var(--color-primary-4);
+  border-left: 0.3rem solid var(--primary-color-4);
   padding-left: 1rem;
 }
 
@@ -96,7 +96,7 @@ nav {
 
 .error-message {
   font-size: 1.5rem;
-  color: rgb(236, 69, 69);
+  color: var(--alert-color);
   text-transform: uppercase;
   display: none;
 }
@@ -123,13 +123,13 @@ input[type="checkbox"] {
   color: white;
   background-image: linear-gradient(
     to bottom,
-    var(--color-primary-1),
-    var(--color-primary-2)
+    var(--primary-color-1),
+    var(--primary-color-2)
   );
 }
 
 .btn-submit:hover {
-  box-shadow: 0rem 0rem 2rem 4px var(--color-primary-3);
+  box-shadow: 0rem 0rem 2rem 4px var(--primary-color-3);
 }
 
 /* Rodapé */
@@ -138,8 +138,8 @@ footer {
 }
 
 .container-footer {
-  background-color: var(--color-primary-6);
-  color: var(--color-primary-1);
+  background-color: var(--primary-color-6);
+  color: var(--primary-color-1);
   display: flex;
   flex-flow: column;
   gap: 6.1rem;
@@ -148,6 +148,7 @@ footer {
 
 .container-slogan-and-informations {
   display: flex;
+  gap: 2rem;
 }
 
 .container-slogan {
@@ -208,11 +209,11 @@ address li {
 
 .container-informations-footer a,
 li {
-  color: var(--color-primary-3);
+  color: var(--primary-color-3);
 }
 
 .copyright {
-  border-top: 0.1rem solid var(--color-primary-1);
+  border-top: 0.1rem solid var(--primary-color-1);
 }
 
 .copyright p {

@@ -12,18 +12,20 @@
 
 html {
   font-size: 62.5%;
-  font-family: var(--font-primary);
+  font-family: var(--primary-font);
 }
 
 :root {
-  --font-primary: "Inter", sans-serif;
+  --primary-font: "Inter", sans-serif;
 
-  --color-primary-1: #6c63ff;
-  --color-primary-2: #4f46eb;
-  --color-primary-3: #bbb;
-  --color-primary-4: #882dc5;
-  --color-primary-5: #333333;
-  --color-primary-6: #1d1b1b;
+  --primary-color-1: #6c63ff;
+  --primary-color-2: #4f46eb;
+  --primary-color-3: #bbb;
+  --primary-color-4: #882dc5;
+  --primary-color-5: #333333;
+  --primary-color-6: #1d1b1b;
+
+  --alert-color:  #c43939; 
 }
 
 li {
