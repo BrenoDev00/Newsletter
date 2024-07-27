@@ -1,4 +1,5 @@
 @media (max-width: 480px) {
+  /* Conteúdo Principal */
   .main-content h1 {
     padding: 3rem;
   }
@@ -7,7 +8,7 @@
     display: none;
   }
 
-  .container {
+  .container-main-content {
     padding: 0;
   }
 
@@ -19,5 +20,20 @@
   .input-name,
   .input-email {
     width: 28rem;
+  }
+
+  /* Rodapé */
+  .container-footer {
+    padding: 4.88rem 2.5rem;
+  }
+
+  .container-slogan-and-informations {
+    flex-flow: column;
+  }
+
+  .container-informations-footer {
+    margin-top: 3.12rem;
+    flex-flow: column;
+    gap: 4.88rem;
   }
 }
