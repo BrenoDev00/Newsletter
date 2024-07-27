@@ -168,18 +168,47 @@ footer {
   gap: 6.1rem;
 }
 
-.newsletter,
-.contact,
-.about-us {
+.container-informations-footer ul {
   display: flex;
   flex-flow: column;
   gap: 1.2rem;
 }
 
-.container-informations-footer ul {
+.newsletter,
+.contact,
+.about-us {
   display: flex;
   flex-flow: column;
-  gap: 0.9rem;
+  gap: 1.6rem;
+}
+
+.newsletter li,
+.about-us li {
+  transition: 0.3s;
+}
+
+.newsletter li:hover,
+.about-us li:hover {
+  transform: translateX(1.2rem);
+}
+
+address {
+  font-style: normal;
+}
+
+address li {
+  display: flex;
+  align-items: center;
+  gap: 0.52rem;
+}
+
+.address-icon {
+  width: 3rem;
+}
+
+.container-informations-footer a,
+li {
+  color: var(--color-primary-3);
 }
 
 .copyright {
