@@ -188,6 +188,23 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+#secundary-btn-close-modal {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.close-modal-icon {
+  width: 3rem;
+}
+
 /* Rodapé */
 footer {
   margin-top: 5rem;

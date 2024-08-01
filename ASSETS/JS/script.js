@@ -8,6 +8,9 @@ document.addEventListener(`DOMContentLoaded`, function () {
     /^([a-z]){1,}([a-z0-9._-]){1,}([@]){1}([a-z]){2,}([.]){1}([a-z]){2,}([.]?){1}([a-z]?){2,}$/i;
   const feedbackModal = document.querySelector(".feedback-modal");
   const btnCloseModal = document.querySelector("#btn-close-modal");
+  const secundaryBtnCloseModal = document.querySelector(
+    "#secundary-btn-close-modal"
+  );
 
   nameField.addEventListener("input", validateNameField);
   emailField.addEventListener("input", validateEmailField);
@@ -57,6 +60,12 @@ document.addEventListener(`DOMContentLoaded`, function () {
 
   function closeFeedbackModal() {
     btnCloseModal.addEventListener("click", function () {
+      feedbackModal.close();
+
+      document.body.style.position = "static";
+    });
+
+    secundaryBtnCloseModal.addEventListener("click", function () {
       feedbackModal.close();
 
       document.body.style.position = "static";
