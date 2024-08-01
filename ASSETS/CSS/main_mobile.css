@@ -22,6 +22,10 @@
     width: 28rem;
   }
 
+  .feedback-modal {
+    padding: 2rem;
+  }
+
   /* Rodapé */
   .container-footer {
     padding: 4.88rem 2.5rem;

@@ -137,7 +137,7 @@ input[type="checkbox"] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 2rem 2.5rem;
+  padding: 2rem 7.63rem;
   border: none;
   border-radius: 1.2rem;
   color: var(--primary-color-2);
@@ -169,12 +169,16 @@ input[type="checkbox"] {
   font-size: 2.3rem;
 }
 
+.modal-group p {
+  text-wrap: nowrap;
+}
+
 .modal-group:last-child {
-  margin-top: 2rem;
+  margin-top: 1.6rem;
 }
 
 #btn-close-modal {
-  margin-top: 1.8rem;
+  margin-top: 2.5rem;
   border-radius: 1rem;
   padding: 1rem 1.6rem;
   color: white;
