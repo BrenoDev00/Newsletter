@@ -143,6 +143,7 @@ input[type="checkbox"] {
   color: var(--primary-color-2);
   opacity: 0;
   transition: opacity 0.9s, display 0.9s;
+  box-shadow: 0 0 0.8rem var(--primary-color-3);
 }
 
 .feedback-modal[open] {
