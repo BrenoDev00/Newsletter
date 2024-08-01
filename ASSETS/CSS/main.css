@@ -132,6 +132,45 @@ input[type="checkbox"] {
   box-shadow: 0rem 0rem 2rem 4px var(--primary-color-3);
 }
 
+.feedback-modal {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem 2.5rem;
+  border: none;
+  border-radius: 1.2rem;
+  color: var(--primary-color-2);
+}
+
+.feedback-modal::backdrop {
+  backdrop-filter: blur(0.8rem);
+}
+
+.success-icon {
+  width: 13rem;
+}
+
+.modal-group {
+  text-align: center;
+  font-size: 2.3rem;
+}
+
+.modal-group:last-child {
+  margin-top: 2rem;
+}
+
+#btn-close-modal {
+  margin-top: 1.8rem;
+  border-radius: 1rem;
+  padding: 1rem 1.6rem;
+  color: white;
+  background-color: var(--primary-color-2);
+  border: none;
+  font-size: 1.92rem;
+  cursor: pointer;
+}
+
 /* Rodapé */
 footer {
   margin-top: 5rem;

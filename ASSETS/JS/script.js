@@ -5,6 +5,8 @@ document.addEventListener(`DOMContentLoaded`, function () {
   const errorMessage = document.querySelectorAll(`.error-message`);
   const emailRegex =
     /^([a-z]){1,}([a-z0-9._-]){1,}([@]){1}([a-z]){2,}([.]){1}([a-z]){2,}([.]?){1}([a-z]?){2,}$/i;
+  const feedbackModal = document.querySelector(".feedback-modal");
+  const btnCloseModal = document.querySelector("#btn-close-modal");
 
   nameField.addEventListener("input", validateNameField);
   emailField.addEventListener("input", validateEmailField);
@@ -13,6 +15,8 @@ document.addEventListener(`DOMContentLoaded`, function () {
     event.preventDefault();
     validateNameField();
     validateEmailField();
+    showFeedbackModal();
+    closeFeedbackModal();
   });
 
   function showError(index) {
@@ -37,5 +41,17 @@ document.addEventListener(`DOMContentLoaded`, function () {
     } else {
       showError(1);
     }
+  }
+
+  function showFeedbackModal() {
+    if (nameField.value.length >= 3 && emailRegex.test(emailField.value)) {
+      feedbackModal.showModal();
+    }
+  }
+
+  function closeFeedbackModal() {
+    btnCloseModal.addEventListener("click", function () {
+      feedbackModal.close();
+    });
   }
 });
