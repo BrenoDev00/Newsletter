@@ -141,10 +141,22 @@ input[type="checkbox"] {
   border: none;
   border-radius: 1.2rem;
   color: var(--primary-color-2);
+  opacity: 0;
+  transition: opacity 0.9s, display 0.9s;
+}
+
+.feedback-modal[open] {
+  opacity: 1;
 }
 
 .feedback-modal::backdrop {
   backdrop-filter: blur(0.8rem);
+}
+
+@starting-style {
+  .feedback-modal[open] {
+    opacity: 0;
+  }
 }
 
 .success-icon {
