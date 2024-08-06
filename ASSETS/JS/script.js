@@ -32,7 +32,7 @@ document.addEventListener(`DOMContentLoaded`, function () {
   }
 
   function validateNameField() {
-    if (nameField.value.length < 3) {
+    if (nameField.value.trim().length < 3) {
       showError(0);
     } else {
       removeError(0);
@@ -48,7 +48,10 @@ document.addEventListener(`DOMContentLoaded`, function () {
   }
 
   function showFeedbackModal() {
-    if (nameField.value.length >= 3 && emailRegex.test(emailField.value)) {
+    if (
+      nameField.value.trim().length >= 3 &&
+      emailRegex.test(emailField.value)
+    ) {
       feedbackModal.showModal();
 
       document.body.style.position = "fixed";
