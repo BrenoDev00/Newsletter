@@ -1,7 +1,11 @@
 @media (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+
   /* Conteúdo Principal */
   .main-content h1 {
-    padding: 3rem;
+    padding: 2.5rem 2rem 2rem 2.5rem;
   }
 
   br {
@@ -17,15 +21,6 @@
     padding: 3rem 1rem;
   }
 
-  .input-name,
-  .input-email {
-    width: 28rem;
-  }
-
-  .feedback-modal {
-    padding: 2rem;
-  }
-
   /* Rodapé */
   .container-footer {
     padding: 4.88rem 2.5rem;
@@ -39,5 +34,12 @@
     margin-top: 3.12rem;
     flex-flow: column;
     gap: 4.88rem;
+  }
+}
+
+@media (min-width: 390px) {
+  .newsletter-form {
+    box-shadow: 0rem 0rem 1rem 0rem var(--primary-color-3);
+    padding: 4rem 3rem;
   }
 }
