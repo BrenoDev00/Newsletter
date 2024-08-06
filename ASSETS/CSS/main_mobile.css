@@ -38,6 +38,7 @@
 }
 
 @media (min-width: 390px) {
+  /* Conteúdo Principal */
   .newsletter-form {
     box-shadow: 0rem 0rem 1rem 0rem var(--primary-color-3);
     padding: 4rem 3rem;
