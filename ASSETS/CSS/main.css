@@ -101,6 +101,18 @@ nav {
   display: none;
 }
 
+.radio-group {
+  display: flex;
+  flex-flow: column;
+  gap: 1.6rem;
+}
+
+.radio-options {
+  display: flex;
+  flex-flow: column;
+  gap: 1.2rem;
+}
+
 .checkbox-group {
   display: flex;
   gap: 0.8rem;
