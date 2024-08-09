@@ -2,6 +2,7 @@ document.addEventListener(`DOMContentLoaded`, function () {
   const newsletterForm = document.getElementById(`newsletter-form`);
   const nameField = document.getElementById(`user-name`);
   const emailField = document.getElementById(`user-email`);
+  const radioOption = document.querySelectorAll(".radio-option");
   const emailAccept = document.getElementById("email-accept");
   const errorMessage = document.querySelectorAll(`.error-message`);
   const emailRegex =
@@ -12,13 +13,19 @@ document.addEventListener(`DOMContentLoaded`, function () {
     "#secundary-btn-close-modal"
   );
 
+  // Validação de formulário em tempo real
   nameField.addEventListener("input", validateNameField);
   emailField.addEventListener("input", validateEmailField);
+  radioOption.forEach(function (option) {
+    option.addEventListener("change", validateGenreFields);
+  });
 
+  // Validação de formulário após envio
   newsletterForm.addEventListener(`submit`, function (event) {
     event.preventDefault();
     validateNameField();
     validateEmailField();
+    validateGenreFields();
     showFeedbackModal();
     closeFeedbackModal();
   });
@@ -40,17 +47,34 @@ document.addEventListener(`DOMContentLoaded`, function () {
   }
 
   function validateEmailField() {
-    if (emailRegex.test(emailField.value)) {
+    if (emailRegex.test(emailField.value.trim())) {
       removeError(1);
     } else {
       showError(1);
     }
   }
 
+  function validateGenreFields() {
+    if (
+      radioOption[0].checked === false &&
+      radioOption[1].checked === false &&
+      radioOption[2].checked === false &&
+      radioOption[3].checked === false
+    ) {
+      showError(2);
+    } else {
+      removeError(2);
+    }
+  }
+
   function showFeedbackModal() {
     if (
       nameField.value.trim().length >= 3 &&
-      emailRegex.test(emailField.value)
+      emailRegex.test(emailField.value.trim()) &&
+      (radioOption[0].checked === true ||
+        radioOption[1].checked === true ||
+        radioOption[2].checked === true ||
+        radioOption[3].checked === true)
     ) {
       feedbackModal.showModal();
 
@@ -78,6 +102,13 @@ document.addEventListener(`DOMContentLoaded`, function () {
   function clearNewsletterFormFields() {
     nameField.value = "";
     emailField.value = "";
+
+    radioOption.forEach(function (option) {
+      if (option.checked === true) {
+        return (option.checked = false);
+      }
+    });
+
     emailAccept.checked = false;
   }
 
