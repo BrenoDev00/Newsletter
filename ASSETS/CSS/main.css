@@ -113,15 +113,33 @@ nav {
   gap: 1.2rem;
 }
 
+.radio-title,
+.select-title {
+  font-size: 1.9rem;
+}
+
+.select-group {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 1.6rem;
+}
+
+#editorial {
+  outline: none;
+  font-size: 1.8rem;
+  padding: 0.52rem;
+}
+
+
 .checkbox-group {
   display: flex;
   gap: 0.8rem;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
 }
 
 input[type="checkbox"] {
   width: 1.6rem;
-  cursor: pointer;
 }
 
 .btn-submit {
