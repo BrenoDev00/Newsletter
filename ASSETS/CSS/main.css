@@ -113,7 +113,7 @@ nav {
   gap: 1.2rem;
 }
 
-.radio-option {
+.radio-option-group {
   display: flex;
   gap: 0.8rem;
 }

@@ -2,11 +2,13 @@ document.addEventListener(`DOMContentLoaded`, function () {
   const newsletterForm = document.getElementById(`newsletter-form`);
   const nameField = document.getElementById(`user-name`);
   const emailField = document.getElementById(`user-email`);
-  const radioOption = document.querySelectorAll(".radio-option");
-  const emailAccept = document.getElementById("email-accept");
-  const errorMessage = document.querySelectorAll(`.error-message`);
   const emailRegex =
     /^([a-z]){1,}([a-z0-9._-]){1,}([@]){1}([a-z]){2,}([.]){1}([a-z]){2,}([.]?){1}([a-z]?){2,}$/i;
+  const radioOption = document.querySelectorAll(".radio-option");
+  const editorial = document.getElementById("editorial");
+  const editorialOption = document.querySelectorAll(".editorial-option");
+  const emailAccept = document.getElementById("email-accept");
+  const errorMessage = document.querySelectorAll(`.error-message`);
   const feedbackModal = document.querySelector(".feedback-modal");
   const btnCloseModal = document.querySelector("#btn-close-modal");
   const secundaryBtnCloseModal = document.querySelector(
@@ -19,6 +21,7 @@ document.addEventListener(`DOMContentLoaded`, function () {
   radioOption.forEach(function (option) {
     option.addEventListener("change", validateGenreFields);
   });
+  editorial.addEventListener("change", validateEditorialFields);
 
   // Validação de formulário após envio
   newsletterForm.addEventListener(`submit`, function (event) {
@@ -26,6 +29,7 @@ document.addEventListener(`DOMContentLoaded`, function () {
     validateNameField();
     validateEmailField();
     validateGenreFields();
+    validateEditorialFields();
     showFeedbackModal();
     closeFeedbackModal();
   });
@@ -64,6 +68,18 @@ document.addEventListener(`DOMContentLoaded`, function () {
       showError(2);
     } else {
       removeError(2);
+    }
+  }
+
+  function validateEditorialFields() {
+    if (
+      editorialOption[1].selected === false &&
+      editorialOption[2].selected === false &&
+      editorialOption[3].selected === false
+    ) {
+      showError(3);
+    } else {
+      removeError(3);
     }
   }
 
