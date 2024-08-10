@@ -28,6 +28,10 @@ html {
   --alert-color: #c43939;
 }
 
+body {
+  font-size: 1.8rem;
+}
+
 li {
   list-style: none;
 }
@@ -40,8 +44,4 @@ input[type="radio"],
 input[type="checkbox"],
 select {
   cursor: pointer;
-}
-
-body {
-  font-size: 1.8rem;
 }
