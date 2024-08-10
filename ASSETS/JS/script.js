@@ -90,7 +90,10 @@ document.addEventListener(`DOMContentLoaded`, function () {
       (radioOption[0].checked === true ||
         radioOption[1].checked === true ||
         radioOption[2].checked === true ||
-        radioOption[3].checked === true)
+        radioOption[3].checked === true) &&
+      (editorialOption[1].selected === true ||
+        editorialOption[2].selected === true ||
+        editorialOption[3].selected === true)
     ) {
       feedbackModal.showModal();
 
@@ -122,6 +125,12 @@ document.addEventListener(`DOMContentLoaded`, function () {
     radioOption.forEach(function (option) {
       if (option.checked === true) {
         return (option.checked = false);
+      }
+    });
+
+    editorialOption.forEach(function (option) {
+      if (option.selected === true) {
+        return (option.selected = false);
       }
     });
 
