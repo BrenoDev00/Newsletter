@@ -75,7 +75,8 @@ document.addEventListener(`DOMContentLoaded`, function () {
     if (
       editorialOption[1].selected === false &&
       editorialOption[2].selected === false &&
-      editorialOption[3].selected === false
+      editorialOption[3].selected === false &&
+      editorialOption[4].selected === false
     ) {
       showError(3);
     } else {
@@ -93,7 +94,8 @@ document.addEventListener(`DOMContentLoaded`, function () {
         radioOption[3].checked === true) &&
       (editorialOption[1].selected === true ||
         editorialOption[2].selected === true ||
-        editorialOption[3].selected === true)
+        editorialOption[3].selected === true ||
+        editorialOption[4].selected === true)
     ) {
       feedbackModal.showModal();
 
