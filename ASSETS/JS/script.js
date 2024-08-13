@@ -20,10 +20,6 @@ document.addEventListener(`DOMContentLoaded`, function () {
   emailField.addEventListener("input", validateEmailField);
 
   radioOption.forEach(function (option) {
-    option.addEventListener("change", validateGenreFields);
-  });
-
-  radioOption.forEach(function (option) {
     option.addEventListener("change", showEditorialOptions);
   });
 
@@ -34,7 +30,6 @@ document.addEventListener(`DOMContentLoaded`, function () {
     event.preventDefault();
     validateNameField();
     validateEmailField();
-    validateGenreFields();
     validateEditorialFields();
     showFeedbackModal();
     closeFeedbackModal();
@@ -64,46 +59,27 @@ document.addEventListener(`DOMContentLoaded`, function () {
     }
   }
 
-  function validateGenreFields() {
-    if (
-      radioOption[0].checked === false &&
-      radioOption[1].checked === false &&
-      radioOption[2].checked === false &&
-      radioOption[3].checked === false
-    ) {
-      showError(2);
-    } else {
-      removeError(2);
-    }
-  }
-
   function showEditorialOptions() {
     if (radioOption[0].checked === true) {
-      editorialOption[0].selected === true;
       editorialOption[1].textContent = "Tech Tudo Notícias";
       editorialOption[2].textContent = "Notícias Tech";
       editorialOption[3].textContent = "Mundo Tecnologia";
       editorialOption[4].textContent = "Lorem Tech Notícias";
     } else if (radioOption[1].checked === true) {
-      editorialOption[0].selected === true;
       editorialOption[1].textContent = "Bem-Estar Notícias";
       editorialOption[2].textContent = "Cuidando da Saúde";
       editorialOption[3].textContent = "Lorem Bem-Estar";
       editorialOption[4].textContent = "Mundo Fitness";
     } else if (radioOption[2].checked === true) {
-      editorialOption[0].selected === true;
       editorialOption[1].textContent = "Cuidando do Dinheiro";
       editorialOption[2].textContent = "Economia Lorem";
       editorialOption[3].textContent = "Dicas de Finanças";
       editorialOption[4].textContent = "Mundo da Economia";
-    } else if (radioOption[3].checked === true) {
-      editorialOption[0].selected === true;
+    } else {
       editorialOption[1].textContent = "Mundo do Cinema";
       editorialOption[2].textContent = "Viagens pelo Brasil ";
       editorialOption[3].textContent = "Entretenimento nas Cidades";
       editorialOption[4].textContent = "Mundo Geek";
-    } else {
-      editorialOption.style.display = "none";
     }
   }
 
@@ -124,10 +100,6 @@ document.addEventListener(`DOMContentLoaded`, function () {
     if (
       nameField.value.trim().length >= 3 &&
       emailRegex.test(emailField.value.trim()) &&
-      (radioOption[0].checked === true ||
-        radioOption[1].checked === true ||
-        radioOption[2].checked === true ||
-        radioOption[3].checked === true) &&
       (editorialOption[1].selected === true ||
         editorialOption[2].selected === true ||
         editorialOption[3].selected === true ||
@@ -137,7 +109,7 @@ document.addEventListener(`DOMContentLoaded`, function () {
 
       document.body.style.position = "fixed";
 
-      clearNewsletterFormFields();
+      formatNewsletterFormFields();
       preventEscKeyFunctionality();
     }
   }
@@ -156,21 +128,21 @@ document.addEventListener(`DOMContentLoaded`, function () {
     });
   }
 
-  function clearNewsletterFormFields() {
+  function formatNewsletterFormFields() {
     nameField.value = "";
     emailField.value = "";
-
-    radioOption.forEach(function (option) {
-      if (option.checked === true) {
-        return (option.checked = false);
-      }
-    });
+    radioOption[0].checked = true;
 
     editorialOption.forEach(function (option) {
       if (option.selected === true) {
         return (option.selected = false);
       }
     });
+
+    editorialOption[1].textContent = "Tech Tudo Notícias";
+    editorialOption[2].textContent = "Notícias Tech";
+    editorialOption[3].textContent = "Mundo Tecnologia";
+    editorialOption[4].textContent = "Lorem Tech Notícias";
 
     emailAccept.checked = false;
   }
