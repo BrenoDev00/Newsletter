@@ -18,9 +18,15 @@ document.addEventListener(`DOMContentLoaded`, function () {
   // Validação de formulário em tempo real
   nameField.addEventListener("input", validateNameField);
   emailField.addEventListener("input", validateEmailField);
+
   radioOption.forEach(function (option) {
     option.addEventListener("change", validateGenreFields);
   });
+
+  radioOption.forEach(function (option) {
+    option.addEventListener("change", showEditorialOptions);
+  });
+
   editorial.addEventListener("change", validateEditorialFields);
 
   // Validação de formulário após envio
@@ -68,6 +74,35 @@ document.addEventListener(`DOMContentLoaded`, function () {
       showError(2);
     } else {
       removeError(2);
+    }
+  }
+
+  function showEditorialOptions() {
+    if (radioOption[0].checked === true) {
+      editorialOption[1].textContent = "Tech Tudo Notícias";
+      editorialOption[2].textContent = "Notícias Tech";
+      editorialOption[3].textContent = "Mundo Tecnologia";
+      editorialOption[4].textContent = "Lorem Tech Notícias";
+    } else if (radioOption[1].checked === true) {
+      editorialOption[1].textContent = "Bem-Estar Notícias";
+      editorialOption[2].textContent = "Cuidando da Saúde";
+      editorialOption[3].textContent = "Lorem Bem-Estar";
+      editorialOption[4].textContent = "Mundo Fitness";
+    } else if (radioOption[2].checked === true) {
+      editorialOption[1].textContent = "Cuidando do Dinheiro";
+      editorialOption[2].textContent = "Economia Lorem";
+      editorialOption[3].textContent = "Dicas de Finanças";
+      editorialOption[4].textContent = "Mundo da Economia";
+    } else if (radioOption[3].checked === true) {
+      editorialOption[1].textContent = "Mundo do Cinema";
+      editorialOption[2].textContent = "Viagens pelo Brasil ";
+      editorialOption[3].textContent = "Entretenimento nas Cidades";
+      editorialOption[4].textContent = "Mundo Geek";
+    } else {
+      editorialOption[1].style.display = "none";
+      editorialOption[2].style.display = "none";
+      editorialOption[3].style.display = "none";
+      editorialOption[4].style.display = "none";
     }
   }
 
