@@ -60,26 +60,39 @@ document.addEventListener(`DOMContentLoaded`, function () {
   }
 
   function showEditorialOptions() {
-    if (radioOption[0].checked === true) {
-      editorialOption[1].textContent = "Tech Tudo Notícias";
-      editorialOption[2].textContent = "Notícias Tech";
-      editorialOption[3].textContent = "Mundo Tecnologia";
-      editorialOption[4].textContent = "Lorem Tech Notícias";
-    } else if (radioOption[1].checked === true) {
-      editorialOption[1].textContent = "Bem-Estar Notícias";
-      editorialOption[2].textContent = "Cuidando da Saúde";
-      editorialOption[3].textContent = "Lorem Bem-Estar";
-      editorialOption[4].textContent = "Mundo Fitness";
-    } else if (radioOption[2].checked === true) {
-      editorialOption[1].textContent = "Cuidando do Dinheiro";
-      editorialOption[2].textContent = "Economia Lorem";
-      editorialOption[3].textContent = "Dicas de Finanças";
-      editorialOption[4].textContent = "Mundo da Economia";
-    } else {
-      editorialOption[1].textContent = "Mundo do Cinema";
-      editorialOption[2].textContent = "Viagens pelo Brasil ";
-      editorialOption[3].textContent = "Entretenimento nas Cidades";
-      editorialOption[4].textContent = "Mundo Geek";
+    let checkedOption;
+
+    for (let i = 0; i < radioOption.length; i++) {
+      if (radioOption[i].checked === true) {
+        checkedOption = i;
+      }
+    }
+
+    switch (checkedOption) {
+      case 0:
+        editorialOption[1].textContent = "Tech Tudo Notícias";
+        editorialOption[2].textContent = "Notícias Tech";
+        editorialOption[3].textContent = "Mundo Tecnologia";
+        editorialOption[4].textContent = "Lorem Tech Notícias";
+        break;
+      case 1:
+        editorialOption[1].textContent = "Bem-Estar Notícias";
+        editorialOption[2].textContent = "Cuidando da Saúde";
+        editorialOption[3].textContent = "Lorem Bem-Estar";
+        editorialOption[4].textContent = "Mundo Fitness";
+        break;
+      case 2:
+        editorialOption[1].textContent = "Cuidando do Dinheiro";
+        editorialOption[2].textContent = "Economia Lorem";
+        editorialOption[3].textContent = "Dicas de Finanças";
+        editorialOption[4].textContent = "Mundo da Economia";
+        break;
+      default:
+        editorialOption[1].textContent = "Mundo do Cinema";
+        editorialOption[2].textContent = "Viagens pelo Brasil";
+        editorialOption[3].textContent = "Entretenimento nas Cidades";
+        editorialOption[4].textContent = "Mundo Geek";
+        break;
     }
   }
 
