@@ -120,6 +120,7 @@ nav {
 
 input[type="radio"] {
   width: 1.6rem;
+  accent-color: var(--primary-color-4);
 }
 
 .radio-title,
@@ -138,6 +139,14 @@ input[type="radio"] {
   outline: none;
   font-size: 1.8rem;
   padding: 0.52rem;
+  border: 0.1rem solid var(--primary-color-2);
+  border-radius: 0.52rem;
+  color: var(--primary-color-5);
+  width: 27rem;
+}
+
+.editorial-option {
+  color: var(--primary-color-5);
 }
 
 .checkbox-group {
@@ -148,6 +157,7 @@ input[type="radio"] {
 
 input[type="checkbox"] {
   width: 1.6rem;
+  accent-color: var(--primary-color-4);
 }
 
 .btn-submit {
