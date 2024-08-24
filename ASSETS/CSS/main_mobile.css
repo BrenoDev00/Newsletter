@@ -17,22 +17,22 @@
   }
 
   .btn-mobile-menu {
-    display: block;
+    display: inline;
   }
 
   .container-navigation-items {
     display: none;
-    align-items: center;
-    padding-bottom: 2rem;
   }
 
   .navigation-item {
     text-transform: uppercase;
   }
 
-  .navigation-open {
+  .open-navigation {
     display: flex;
     flex-flow: column;
+    align-items: center;
+    padding-bottom: 2rem;
   }
 
   /* Conteúdo Principal */

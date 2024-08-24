@@ -5,15 +5,16 @@ document.addEventListener(`DOMContentLoaded`, function () {
 
   function showMobileNavigation() {
     btnMobileNavigation.addEventListener("click", function () {
-      navigationItems.classList.toggle("navigation-open");
-    });
+      navigationItems.classList.toggle("open-navigation");
 
-    if (navigationItems.classList.contains("navigation-open")) {
-      btnMobileNavigation.src =
-        "ASSETS/IMAGES/icone_fechar_menu_responsivo.svg";
-    } else {
-      btnMobileNavigation.src = "ASSETS/IMAGES/icone_botao_menu_responsivo.svg";
-    }
+      if (navigationItems.classList.contains("open-navigation")) {
+        btnMobileNavigation.src =
+          "ASSETS/IMAGES/icone_fechar_menu_responsivo.svg";
+      } else {
+        btnMobileNavigation.src =
+          "ASSETS/IMAGES/icone_botao_menu_responsivo.svg";
+      }
+    });
   }
 
   showMobileNavigation();
