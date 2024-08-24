@@ -1,4 +1,24 @@
 document.addEventListener(`DOMContentLoaded`, function () {
+  // Menu de Navegação
+  const btnMobileNavigation = document.querySelector(".btn-mobile-menu");
+  const navigationItems = document.querySelector(".container-navigation-items");
+
+  function showMobileNavigation() {
+    btnMobileNavigation.addEventListener("click", function () {
+      navigationItems.classList.toggle("navigation-open");
+    });
+
+    if (navigationItems.classList.contains("navigation-open")) {
+      btnMobileNavigation.src =
+        "ASSETS/IMAGES/icone_fechar_menu_responsivo.svg";
+    } else {
+      btnMobileNavigation.src = "ASSETS/IMAGES/icone_botao_menu_responsivo.svg";
+    }
+  }
+
+  showMobileNavigation();
+
+  // Conteúdo Principal
   const newsletterForm = document.getElementById(`newsletter-form`);
   const nameField = document.getElementById(`user-name`);
   const emailField = document.getElementById(`user-email`);

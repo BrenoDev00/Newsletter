@@ -13,6 +13,11 @@ nav {
   cursor: pointer;
 }
 
+.btn-mobile-menu {
+  display: none;
+  width: 5rem;
+}
+
 .container-navigation-items {
   display: flex;
   gap: 3.9rem;
