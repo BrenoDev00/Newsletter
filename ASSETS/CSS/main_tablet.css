@@ -1,3 +1,37 @@
+@media (max-width: 768px) {
+  /* Menu de Navegação */
+  nav {
+    flex-flow: column;
+    align-items: stretch;
+    gap: 2.3rem;
+  }
+
+  .container-logo-and-btn-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn-mobile-menu {
+    display: inline;
+  }
+
+  .container-navigation-items {
+    display: none;
+  }
+
+  .navigation-item {
+    text-transform: uppercase;
+  }
+
+  .open-navigation {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+}
+
 @media (max-width: 991px) {
   /* Conteúdo Principal */
   .illustration {
@@ -13,3 +47,4 @@
     flex-flow: column;
   }
 }
+
