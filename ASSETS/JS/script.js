@@ -34,6 +34,10 @@ document.addEventListener(`DOMContentLoaded`, function () {
     const formData = new FormData(newsletterForm);
     const data = Object.fromEntries(formData);
 
+    validateNameField();
+    validateEmailField();
+    validateEditorialFields();
+
     if (
       validateNameField() &&
       validateEmailField() &&
