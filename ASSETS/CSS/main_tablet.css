@@ -1,4 +1,28 @@
+@media (max-width: 991px) {
+  html {
+    font-size: 58%;
+  }
+
+  /* Conteúdo Principal */
+  .illustration {
+    display: none;
+  }
+
+  /* Rodapé */
+  .container-slogan-and-informations {
+    gap: 3.9rem;
+  }
+
+  .container-informations-footer {
+    flex-flow: column;
+  }
+}
+
 @media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+
   /* Menu de Navegação */
   nav {
     flex-flow: column;
@@ -32,19 +56,8 @@
   }
 }
 
-@media (max-width: 991px) {
-  /* Conteúdo Principal */
-  .illustration {
-    display: none;
-  }
-
-  /* Rodapé */
-  .container-slogan-and-informations {
-    gap: 3.9rem;
-  }
-
-  .container-informations-footer {
-    flex-flow: column;
+@media (max-width: 991px) and (orientation: landscape) {
+  html {
+    font-size: 50%;
   }
 }
-
