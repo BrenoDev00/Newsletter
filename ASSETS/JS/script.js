@@ -18,57 +18,6 @@ document.addEventListener(`DOMContentLoaded`, function () {
     "#secundary-btn-close-modal"
   );
 
-  // Validação de formulário em tempo real
-  nameField.addEventListener("input", validateNameField);
-  emailField.addEventListener("input", validateEmailField);
-
-  radioOption.forEach(function (option) {
-    option.addEventListener("change", showEditorialOptions);
-  });
-
-  editorial.addEventListener("change", validateEditorialFields);
-
-  // Validação de formulário após envio
-  newsletterForm.addEventListener(`submit`, function (event) {
-    event.preventDefault();
-    const formData = new FormData(newsletterForm);
-    const data = Object.fromEntries(formData);
-
-    validateNameField();
-    validateEmailField();
-    validateEditorialFields();
-
-    if (
-      validateNameField() &&
-      validateEmailField() &&
-      validateEditorialFields()
-    ) {
-      submitForm(data);
-    }
-
-    closeModal();
-  });
-
-  async function submitForm(data) {
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.status == 201) {
-        showSuccessModal("Formulário enviado com Sucesso!");
-      } else {
-        throw new Error("Não foi possível enviar o formulário.");
-      }
-    } catch (error) {
-      showErrorModal(error.message);
-    }
-  }
-
   function showError(index) {
     errorMessage[index].style.display = `flex`;
   }
@@ -96,6 +45,129 @@ document.addEventListener(`DOMContentLoaded`, function () {
       return false;
     }
   }
+
+  function validateEditorialFields() {
+    if (
+      editorialOption[1].selected === false &&
+      editorialOption[2].selected === false &&
+      editorialOption[3].selected === false &&
+      editorialOption[4].selected === false
+    ) {
+      showError(3);
+      return false;
+    } else {
+      removeError(3);
+      return true;
+    }
+  }
+
+  function formatNewsletterFormFields() {
+    nameField.value = "";
+    emailField.value = "";
+    radioOption[0].checked = true;
+
+    editorialOption.forEach(function (option) {
+      if (option.selected === true) {
+        return (option.selected = false);
+      }
+    });
+
+    editorialOption[1].textContent = "Tech Tudo Notícias";
+    editorialOption[2].textContent = "Notícias Tech";
+    editorialOption[3].textContent = "Mundo Tecnologia";
+    editorialOption[4].textContent = "Lorem Tech Notícias";
+
+    emailAccept.checked = false;
+  }
+
+  function preventEscKeyFunctionality() {
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+      }
+    });
+  }
+
+  function showSuccessModal(message) {
+    modalIcon.src = "ASSETS/IMAGES/icone_sucesso.svg";
+    modalIcon.alt =
+      "Ícone de seta positiva representando formulário bem-sucedido.";
+    modalMessage.textContent = message;
+
+    feedbackModal.showModal();
+
+    document.body.style.position = "fixed";
+
+    formatNewsletterFormFields();
+    preventEscKeyFunctionality();
+  }
+
+  function showErrorModal(message) {
+    modalIcon.src = "ASSETS/IMAGES/icone-erro.svg";
+    modalIcon.alt = "Ícone de X representando formulário não enviado.";
+    modalMessage.textContent = message;
+
+    feedbackModal.showModal();
+
+    document.body.style.position = "fixed";
+
+    preventEscKeyFunctionality();
+  }
+
+  async function submitForm(data) {
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.status == 201) {
+        showSuccessModal("Formulário enviado com Sucesso!");
+      } else {
+        throw new Error("Não foi possível enviar o formulário.");
+      }
+    } catch (error) {
+      showErrorModal(error.message);
+    }
+  }
+
+  function closeModal() {
+    btnCloseModal.addEventListener("click", function () {
+      feedbackModal.close();
+
+      document.body.style.position = "static";
+    });
+
+    secundaryBtnCloseModal.addEventListener("click", function () {
+      feedbackModal.close();
+
+      document.body.style.position = "static";
+    });
+  }
+
+  // Validação de formulário após envio
+  newsletterForm.addEventListener(`submit`, function (event) {
+    event.preventDefault();
+    const formData = new FormData(newsletterForm);
+    const data = Object.fromEntries(formData);
+
+    validateNameField();
+    validateEmailField();
+    validateEditorialFields();
+
+    if (
+      validateNameField() &&
+      validateEmailField() &&
+      validateEditorialFields()
+    ) {
+      submitForm(data);
+    }
+
+    closeModal();
+  });
 
   function showEditorialOptions() {
     let checkedOption;
@@ -162,85 +234,13 @@ document.addEventListener(`DOMContentLoaded`, function () {
     }
   }
 
-  function validateEditorialFields() {
-    if (
-      editorialOption[1].selected === false &&
-      editorialOption[2].selected === false &&
-      editorialOption[3].selected === false &&
-      editorialOption[4].selected === false
-    ) {
-      showError(3);
-      return false;
-    } else {
-      removeError(3);
-      return true;
-    }
-  }
+  // Validação de formulário em tempo real
+  nameField.addEventListener("input", validateNameField);
+  emailField.addEventListener("input", validateEmailField);
 
-  function showSuccessModal(message) {
-    modalIcon.src = "ASSETS/IMAGES/icone_sucesso.svg";
-    modalIcon.alt =
-      "Ícone de seta positiva representando formulário bem-sucedido.";
-    modalMessage.textContent = message;
+  radioOption.forEach(function (option) {
+    option.addEventListener("change", showEditorialOptions);
+  });
 
-    feedbackModal.showModal();
-
-    document.body.style.position = "fixed";
-
-    formatNewsletterFormFields();
-    preventEscKeyFunctionality();
-  }
-
-  function showErrorModal(message) {
-    modalIcon.src = "ASSETS/IMAGES/icone-erro.svg";
-    modalIcon.alt = "Ícone de X representando formulário não enviado.";
-    modalMessage.textContent = message;
-
-    feedbackModal.showModal();
-
-    document.body.style.position = "fixed";
-
-    preventEscKeyFunctionality();
-  }
-
-  function closeModal() {
-    btnCloseModal.addEventListener("click", function () {
-      feedbackModal.close();
-
-      document.body.style.position = "static";
-    });
-
-    secundaryBtnCloseModal.addEventListener("click", function () {
-      feedbackModal.close();
-
-      document.body.style.position = "static";
-    });
-  }
-
-  function formatNewsletterFormFields() {
-    nameField.value = "";
-    emailField.value = "";
-    radioOption[0].checked = true;
-
-    editorialOption.forEach(function (option) {
-      if (option.selected === true) {
-        return (option.selected = false);
-      }
-    });
-
-    editorialOption[1].textContent = "Tech Tudo Notícias";
-    editorialOption[2].textContent = "Notícias Tech";
-    editorialOption[3].textContent = "Mundo Tecnologia";
-    editorialOption[4].textContent = "Lorem Tech Notícias";
-
-    emailAccept.checked = false;
-  }
-
-  function preventEscKeyFunctionality() {
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        event.preventDefault();
-      }
-    });
-  }
+  editorial.addEventListener("change", validateEditorialFields);
 });
