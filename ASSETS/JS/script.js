@@ -1,5 +1,6 @@
 document.addEventListener(`DOMContentLoaded`, function () {
   const newsletterForm = document.getElementById(`newsletter-form`);
+  const url = "https://reqres.in/api/users";
   const nameField = document.getElementById(`user-name`);
   const emailField = document.getElementById(`user-email`);
   const emailRegex =
@@ -10,6 +11,8 @@ document.addEventListener(`DOMContentLoaded`, function () {
   const emailAccept = document.getElementById("email-accept");
   const errorMessage = document.querySelectorAll(`.error-message`);
   const feedbackModal = document.querySelector(".feedback-modal");
+  const modalIcon = document.querySelector(".modal-icon");
+  const modalMessage = document.querySelector(".modal-message");
   const btnCloseModal = document.querySelector("#btn-close-modal");
   const secundaryBtnCloseModal = document.querySelector(
     "#secundary-btn-close-modal"
@@ -28,12 +31,39 @@ document.addEventListener(`DOMContentLoaded`, function () {
   // Validação de formulário após envio
   newsletterForm.addEventListener(`submit`, function (event) {
     event.preventDefault();
-    validateNameField();
-    validateEmailField();
-    validateEditorialFields();
-    showFeedbackModal();
-    closeFeedbackModal();
+    const formData = new FormData(newsletterForm);
+    const data = Object.fromEntries(formData);
+
+    if (
+      validateNameField() &&
+      validateEmailField() &&
+      validateEditorialFields()
+    ) {
+      submitForm(data);
+    }
+
+    closeModal();
   });
+
+  async function submitForm(data) {
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.status == 201) {
+        showSuccessModal("Formulário enviado com Sucesso!");
+      } else {
+        throw new Error("Não foi possível enviar o formulário.");
+      }
+    } catch (error) {
+      showErrorModal(error.message);
+    }
+  }
 
   function showError(index) {
     errorMessage[index].style.display = `flex`;
@@ -46,16 +76,20 @@ document.addEventListener(`DOMContentLoaded`, function () {
   function validateNameField() {
     if (nameField.value.trim().length < 3) {
       showError(0);
+      return false;
     } else {
       removeError(0);
+      return true;
     }
   }
 
   function validateEmailField() {
     if (emailRegex.test(emailField.value.trim())) {
       removeError(1);
+      return true;
     } else {
       showError(1);
+      return false;
     }
   }
 
@@ -104,30 +138,48 @@ document.addEventListener(`DOMContentLoaded`, function () {
       editorialOption[4].selected === false
     ) {
       showError(3);
+      return false;
     } else {
       removeError(3);
+      return true;
     }
   }
 
-  function showFeedbackModal() {
-    if (
-      nameField.value.trim().length >= 3 &&
-      emailRegex.test(emailField.value.trim()) &&
-      (editorialOption[1].selected === true ||
-        editorialOption[2].selected === true ||
-        editorialOption[3].selected === true ||
-        editorialOption[4].selected === true)
-    ) {
-      feedbackModal.showModal();
+  function showSuccessModal(message) {
+    // if (
+    //   nameField.value.trim().length >= 3 &&
+    //   emailRegex.test(emailField.value.trim()) &&
+    //   (editorialOption[1].selected === true ||
+    //     editorialOption[2].selected === true ||
+    //     editorialOption[3].selected === true ||
+    //     editorialOption[4].selected === true)
+    // ) {
+    modalIcon.src = "";
+    modalIcon.alt = "";
+    modalMessage.textContent = message;
 
-      document.body.style.position = "fixed";
+    feedbackModal.showModal();
 
-      formatNewsletterFormFields();
-      preventEscKeyFunctionality();
-    }
+    document.body.style.position = "fixed";
+
+    formatNewsletterFormFields();
+    preventEscKeyFunctionality();
   }
 
-  function closeFeedbackModal() {
+  function showErrorModal(message) {
+    modalIcon.src = "";
+    modalIcon.alt = "";
+    modalMessage.textContent = message;
+
+    feedbackModal.showModal();
+
+    document.body.style.position = "fixed";
+
+    formatNewsletterFormFields();
+    preventEscKeyFunctionality();
+  }
+
+  function closeModal() {
     btnCloseModal.addEventListener("click", function () {
       feedbackModal.close();
 

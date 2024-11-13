@@ -213,7 +213,7 @@ input[type="checkbox"] {
   }
 }
 
-.modal-group img {
+.modal-icon {
   width: 13rem;
 }
 
@@ -222,7 +222,7 @@ input[type="checkbox"] {
   font-size: 2.3rem;
 }
 
-.modal-group p {
+.modal-message {
   text-wrap: nowrap;
 }
 
