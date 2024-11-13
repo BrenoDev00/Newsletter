@@ -105,27 +105,55 @@ document.addEventListener(`DOMContentLoaded`, function () {
     switch (checkedOption) {
       case 0:
         editorialOption[1].textContent = "Tech Tudo Notícias";
+        editorialOption[1].value = "Tech-Everything-News";
+
         editorialOption[2].textContent = "Notícias Tech";
+        editorialOption[2].value = "Tech-News";
+
         editorialOption[3].textContent = "Mundo Tecnologia";
+        editorialOption[3].value = "Tech-World";
+
         editorialOption[4].textContent = "Lorem Tech Notícias";
+        editorialOption[4].value = "Lorem-Tech-News";
         break;
       case 1:
         editorialOption[1].textContent = "Bem-Estar Notícias";
+        editorialOption[1].value = "Wellness-News";
+
         editorialOption[2].textContent = "Cuidando da Saúde";
+        editorialOption[2].value = "Taking-Care-of-Health";
+
         editorialOption[3].textContent = "Lorem Bem-Estar";
+        editorialOption[3].value = "Lorem-Wellness";
+
         editorialOption[4].textContent = "Mundo Fitness";
+        editorialOption[4].value = "Fitness-World";
         break;
       case 2:
         editorialOption[1].textContent = "Cuidando do Dinheiro";
+        editorialOption[1].value = "Taking-Care-of-Money";
+
         editorialOption[2].textContent = "Economia Lorem";
+        editorialOption[2].value = "Lorem-Economy";
+
         editorialOption[3].textContent = "Dicas de Finanças";
+        editorialOption[3].value = "Finance-Tips";
+
         editorialOption[4].textContent = "Mundo da Economia";
+        editorialOption[4].value = "World-of-Economy";
         break;
       default:
         editorialOption[1].textContent = "Mundo do Cinema";
+        editorialOption[1].value = "World-of-Cinema";
+
         editorialOption[2].textContent = "Viagens pelo Brasil";
+        editorialOption[2].value = "Traveling-Through-Brazil";
+
         editorialOption[3].textContent = "Entretenimento nas Cidades";
+        editorialOption[3].value = "Entertainment-in-the-Cities";
+
         editorialOption[4].textContent = "Mundo Geek";
+        editorialOption[4].value = "Geek-World";
         break;
     }
   }
@@ -146,16 +174,9 @@ document.addEventListener(`DOMContentLoaded`, function () {
   }
 
   function showSuccessModal(message) {
-    // if (
-    //   nameField.value.trim().length >= 3 &&
-    //   emailRegex.test(emailField.value.trim()) &&
-    //   (editorialOption[1].selected === true ||
-    //     editorialOption[2].selected === true ||
-    //     editorialOption[3].selected === true ||
-    //     editorialOption[4].selected === true)
-    // ) {
-    modalIcon.src = "";
-    modalIcon.alt = "";
+    modalIcon.src = "ASSETS/IMAGES/icone_sucesso.svg";
+    modalIcon.alt =
+      "Ícone de seta positiva representando formulário bem-sucedido.";
     modalMessage.textContent = message;
 
     feedbackModal.showModal();
@@ -167,15 +188,14 @@ document.addEventListener(`DOMContentLoaded`, function () {
   }
 
   function showErrorModal(message) {
-    modalIcon.src = "";
-    modalIcon.alt = "";
+    modalIcon.src = "ASSETS/IMAGES/icone-erro.svg";
+    modalIcon.alt = "Ícone de X representando formulário não enviado.";
     modalMessage.textContent = message;
 
     feedbackModal.showModal();
 
     document.body.style.position = "fixed";
 
-    formatNewsletterFormFields();
     preventEscKeyFunctionality();
   }
 
