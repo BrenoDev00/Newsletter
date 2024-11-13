@@ -75,7 +75,7 @@
         <div class="main-content">
           <h1>Cadastre-se Agora e <br />Receba Novidades!</h1>
 
-          <form class="newsletter-form" id="newsletter-form" action="#">
+          <form class="newsletter-form" id="newsletter-form" method="post">
             <h2>Cadastrar</h2>
 
             <div class="text-group">
@@ -87,6 +87,7 @@
                 placeholder="* Nome"
                 aria-label="Seu nome"
                 maxlength="64"
+                name="user-name"
               />
               <span class="error-message">Mínimo 3 caracteres</span>
             </div>
@@ -100,6 +101,7 @@
                 placeholder="* Seu melhor E-mail"
                 aria-label="E-mail"
                 maxlength="254"
+                name="user-email"
               />
               <span class="error-message">Informe um E-mail válido</span>
             </div>
@@ -117,6 +119,7 @@
                     class="radio-option"
                     name="genre"
                     checked
+                    value="technology"
                   />
                   <label for="technology">Tecnologia</label>
                 </div>
@@ -127,6 +130,7 @@
                     id="health"
                     class="radio-option"
                     name="genre"
+                    value="health"
                   />
                   <label for="health">Saúde e bem-estar </label>
                 </div>
@@ -137,6 +141,7 @@
                     id="finance"
                     class="radio-option"
                     name="genre"
+                    value="finance"
                   />
                   <label for="finance">Finanças</label>
                 </div>
@@ -147,6 +152,7 @@
                     id="entertainment"
                     class="radio-option"
                     name="genre"
+                    value="entertainment"
                   />
                   <label for="entertainment">Entretenimento</label>
                 </div>
@@ -160,17 +166,34 @@
 
               <span class="error-message">Escolha o editorial</span>
 
-              <select id="editorial">
+              <select id="editorial" name="editorial">
                 <option class="editorial-option" selected>Escolha</option>
-                <option class="editorial-option">Tech Tudo Notícias</option>
-                <option class="editorial-option">Notícias Tech</option>
-                <option class="editorial-option">Mundo Tecnologia</option>
-                <option class="editorial-option">Lorem Tech Notícias</option>
+
+                <option class="editorial-option" value="Tech-Everything-News">
+                  Tech Tudo Notícias
+                </option>
+
+                <option class="editorial-option" value="Tech-News">
+                  Notícias Tech
+                </option>
+
+                <option class="editorial-option" value="Tech-World">
+                  Mundo Tecnologia
+                </option>
+
+                <option class="editorial-option" value="Lorem-Tech-News">
+                  Lorem Tech Notícias
+                </option>
               </select>
             </div>
 
             <div class="checkbox-group">
-              <input type="checkbox" id="email-accept" />
+              <input
+                type="checkbox"
+                id="email-accept"
+                name="e-mail-accept"
+                value="email-accept"
+              />
               <label for="email-accept">Desejo receber diariamente</label>
             </div>
 
