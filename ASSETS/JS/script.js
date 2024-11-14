@@ -103,7 +103,7 @@ document.addEventListener(`DOMContentLoaded`, function () {
   }
 
   function showErrorModal(message) {
-    modalIcon.src = "ASSETS/IMAGES/icone-erro.svg";
+    modalIcon.src = "ASSETS/IMAGES/icone_erro.svg";
     modalIcon.alt = "Ícone de X representando formulário não enviado.";
     modalMessage.textContent = message;
 
@@ -131,6 +131,10 @@ document.addEventListener(`DOMContentLoaded`, function () {
       }
     } catch (error) {
       showErrorModal(error.message);
+
+      if (error.message === "Failed to fetch") {
+        showErrorModal("Não foi possível enviar o formulário.");
+      }
     }
   }
 
